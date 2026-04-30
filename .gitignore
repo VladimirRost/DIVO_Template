@@ -1,0 +1,60 @@
+# ========== Временные файлы Unity ==========
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/MemoryCaptures/
+
+# ========== Файлы настроек редактора ==========
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ========== Системные файлы ==========
+*.DS_Store
+*~
+*.swp
+*.swo
+Thumbs.db
+desktop.ini
+
+# ========== Плагины и ассеты ==========
+# Если используете плагины, которые генерируют файлы
+/[Aa]ssets/Plugins/Editor/x86/
+/[Aa]ssets/Plugins/Editor/x86_64/
+/[Aa]ssets/Plugins/x86/
+/[Aa]ssets/Plugins/x86_64/
+
+# ========== Профайлинг ==========
+*.psess
+*.vsp
+*.psess
+*.trace
+
+# ========== Для конкретных папок в вашем проекте =========-
+# Раскомментируйте если нужно игнорировать определенные ассеты
+# /Assets/GavsHome/Текстурные_кэши/
+# /Assets/GavsHome/Заглушки/
+
+# ========== Настройки IDE ==========
+.vscode/
+.idea/
+*.pidb
+*.userprefs
+
+# ========== Логи ошибок ==========
+/error.log
+/crash.log
