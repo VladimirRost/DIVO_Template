@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class SunPositionController : MonoBehaviour
 {
+    public Text MonthCounter;
+
+
     [Header("Location")]
     [Range(-90f, 90f)] public float latitude = 43.25f;   // Алматы
     [Range(-180f, 180f)] public float longitude = 76.95f;
@@ -13,8 +17,16 @@ public class SunPositionController : MonoBehaviour
     [Range(1, 31)] public int day = 21;
     [Range(0f, 24f)] public float timeOfDay = 12f;
 
+    public Button ButtonSwitchMountPlus;  //  Кнопка Увеличения месяца
+    public Button ButtonSwitchMountMinus;  //  Кнопка Уменьшения месяца
+
     [Header("References")]
     public Light sunLight;
+
+    private void Start()
+    {
+        MonthCounter.text = month.ToString();
+    }
 
     void Update()
     {
@@ -57,5 +69,26 @@ public class SunPositionController : MonoBehaviour
         // Поворот солнца
         //sunLight.transform.rotation = Quaternion.Euler(altitudeDeg, azimuthDeg, 0f);
         sunLight.transform.rotation = Quaternion.Euler(altitudeDeg, azimuthDeg - 180f, 0f);
+    }
+
+
+    public void ButtomPlusMounth()
+    {
+        
+        if (month<12)
+        {
+            month++;
+        }
+        //Debug.Log(month);
+        MonthCounter.text = month.ToString();
+    }
+    public void ButtomMinusMounth()
+    {
+        if (month > 1)
+        {
+            month--;
+        }
+        //Debug.Log(month);
+        MonthCounter.text = month.ToString();
     }
 }
