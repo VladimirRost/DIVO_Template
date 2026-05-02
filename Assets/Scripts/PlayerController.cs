@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
-//using TMPro;
-//using Unity.VisualScripting;
 using UnityEngine;
-//using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-//using UnityEngine.Windows;
+
 
 public class PlayerController : MonoBehaviour
 {

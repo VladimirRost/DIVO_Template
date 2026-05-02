@@ -1,80 +1,85 @@
-﻿using RimuruDev;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MobilePlatformDetector : MonoBehaviour
 {
     public GameObject mobileUI;
+    public Text TextPlatform;
     public MonoBehaviour mobileMovement;
 
+    private string _mob = "Mobile";
+    private string _pc = "PC";
 
-    void Start()
+#if UNITY_EDITOR
+    [Tooltip("Принудительно эмулировать мобильное устройство в редакторе")]
+    public bool simulateMobile = false;
+#endif
+
+    private void Start()
     {
-        var detector = GetComponent<DeviceTypeDetector>();
+        bool isMobile;
 
-        if (detector.CurrentDeviceType == CurrentDeviceType.WebMobile)
+#if UNITY_EDITOR
+        isMobile = simulateMobile;
+#else
+        // В билде определяем надёжным способом: Unity API + (если WebGL) плагин JavaScript
+        isMobile = Application.isMobilePlatform || IsMobileViaWebGLPlugin();
+#endif
+
+        Debug.Log($"Is Mobile: {isMobile} | DeviceType: {SystemInfo.deviceType} | Platform: {Application.platform}");
+
+        if (isMobile)
         {
-            Debug.Log("Это мобильное устройство!");
-            mobileUI.SetActive(true);
-            
-            
-            mobileMovement.enabled = true;
-            
-            
-            //desktopMovement.enabled = false;
+            if (mobileUI != null) mobileUI.SetActive(true);
+            if (mobileMovement != null) mobileMovement.enabled = true;
+            TextPlatform.text = _mob;
+            Debug.Log("Запуск как МОБИЛЬНОЕ устройство");
         }
         else
         {
-            Debug.Log("Это компьютер!");
-            mobileUI.SetActive(false);
-            mobileMovement.enabled = false;
-            //desktopMovement.enabled = true;
+            if (mobileUI != null) mobileUI.SetActive(false);
+            if (mobileMovement != null) mobileMovement.enabled = false;
+            TextPlatform.text = _pc;
+            Debug.Log("Запуск как ДЕСКТОП");
         }
     }
 
+#if !UNITY_EDITOR && UNITY_WEBGL
+    // Импорт нашей JavaScript-функции из плагина
+    [System.Runtime.InteropServices.DllImport("__Internal")]
+    private static extern int IsMobile();
 
-
-    //public Text text;
-
-
-    ////public MonoBehaviour desktopMovement;
-
-    //private bool mobile;
-
-    //void Start()
-    //{
-    //    switch (Application.platform)
-    //    {
-    //        case RuntimePlatform.Android:
-    //        case RuntimePlatform.IPhonePlayer:
-    //            mobile = true;
-    //            break;
-    //        case RuntimePlatform.WindowsPlayer:
-    //        case RuntimePlatform.WindowsEditor:
-    //        case RuntimePlatform.OSXPlayer:
-    //        case RuntimePlatform.LinuxPlayer:
-    //        default:
-    //            mobile = false;
-    //            break;
-    //    }
-
-    //    Debug.Log("Platform: " + Application.platform);
-    //    Debug.Log("Mobile Version? " + mobile);
-    //    text.text = Application.platform.ToString();
-
-    //    //mobileUI.SetActive(mobile);
-
-    //    //mobileMovement.enabled = mobile;
-
-    //    //  Временно включаю мобильный интерфейс !!!!!!!!!!!!!!!
-    //    mobileUI.SetActive(true);
-
-    //    mobileMovement.enabled = true;
-
-
-
-
-
-    //    // desktopMovement.enabled = !mobile;
-    //}
+    private bool IsMobileViaWebGLPlugin()
+    {
+        try
+        {
+            return IsMobile() == 1;
+        }
+        catch
+        {
+            // Если вызов не удался (например, не WebGL), вернём false
+            return false;
+        }
+    }
+#else
+    private bool IsMobileViaWebGLPlugin() => false;
+#endif
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
