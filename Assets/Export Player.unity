@@ -4061,8 +4061,8 @@ MonoBehaviour:
   latitude: 43.25
   longitude: 76.95
   year: 2025
-  month: 6
-  day: 21
+  month: 9
+  day: 14
   timeOfDay: 12
   ButtonSwitchMountPlus: {fileID: 204954891}
   ButtonSwitchMountMinus: {fileID: 1714732467}

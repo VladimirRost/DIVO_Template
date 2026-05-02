@@ -48,17 +48,38 @@ public class SunPositionController : MonoBehaviour
         float hourAngle = (timeOfDay - 12f) * 15f;
         float hourRad = Mathf.Deg2Rad * hourAngle;
 
-        // Высота солнца
-        float altitude = Mathf.Asin(
-            Mathf.Sin(latRad) * Mathf.Sin(declRad) +
-            Mathf.Cos(latRad) * Mathf.Cos(declRad) * Mathf.Cos(hourRad)
-        );
+        //// Высота солнца
+        ///
+        float sinAlt = Mathf.Sin(latRad) * Mathf.Sin(declRad) +
+               Mathf.Cos(latRad) * Mathf.Cos(declRad) * Mathf.Cos(hourRad);
+        sinAlt = Mathf.Clamp(sinAlt, -1f, 1f);
+        float altitude = Mathf.Asin(sinAlt);
+        //float altitude = Mathf.Asin(
+        //    Mathf.Sin(latRad) * Mathf.Sin(declRad) +
+        //    Mathf.Cos(latRad) * Mathf.Cos(declRad) * Mathf.Cos(hourRad)
+        //);
 
         // Азимут
-        float azimuth = Mathf.Acos(
-            (Mathf.Sin(declRad) - Mathf.Sin(altitude) * Mathf.Sin(latRad)) /
-            (Mathf.Cos(altitude) * Mathf.Cos(latRad))
-        );
+        float denom = Mathf.Cos(altitude) * Mathf.Cos(latRad);
+        float azimuth;
+
+        if (Mathf.Abs(denom) < 1e-6f)   // зенит или очень близко → азимут не определён
+        {
+            azimuth = 0f;               // можно поставить любое значение, например 0
+        }
+        else
+        {
+            float cosAz = (Mathf.Sin(declRad) - Mathf.Sin(altitude) * Mathf.Sin(latRad)) / denom;
+            cosAz = Mathf.Clamp(cosAz, -1f, 1f);
+            azimuth = Mathf.Acos(cosAz);
+        }
+
+
+
+        //float azimuth = Mathf.Acos(
+        //    (Mathf.Sin(declRad) - Mathf.Sin(altitude) * Mathf.Sin(latRad)) /
+        //    (Mathf.Cos(altitude) * Mathf.Cos(latRad))
+        //);
 
         float altitudeDeg = Mathf.Rad2Deg * altitude;
         float azimuthDeg = Mathf.Rad2Deg * azimuth;
