@@ -3611,11 +3611,11 @@ RectTransform:
   - {fileID: 1220720325}
   - {fileID: 6814751}
   - {fileID: 351368746}
+  - {fileID: 437000403}
   - {fileID: 1477428765}
   - {fileID: 63703528}
   - {fileID: 572893535}
   - {fileID: 313077957}
-  - {fileID: 437000403}
   m_Father: {fileID: 330585546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

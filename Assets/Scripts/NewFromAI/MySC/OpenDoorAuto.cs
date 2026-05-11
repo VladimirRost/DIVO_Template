@@ -91,13 +91,16 @@ public class OpenDoorAuto : MonoBehaviour
         // Запуск фоновой музыки
         //audioSource.
         // Назначаем аудиоклип в источник звука
-        audioSource.clip = ambientSound;
+        if (audioSource != null && ambientSound != null)
+        {
+            audioSource.clip = ambientSound;
 
-        // Включаем зацикливание
-        audioSource.loop = true;
+            // Включаем зацикливание
+            audioSource.loop = true;
 
-        // Начинаем воспроизведение
-        audioSource.Play();
+            // Начинаем воспроизведение
+            audioSource.Play();
+        }
 
         // Сохраняем начальное состояние двери (позицию и поворот в закрытом состоянии)
         startPosition = transform.position;

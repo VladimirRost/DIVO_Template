@@ -212,16 +212,6 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
 
-
-        //Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
-
-        //float deltaX = mouseDelta.x;
-        //float deltaY = mouseDelta.y;
-
-        //yaw += deltaX * _sensitivity_mouse * Time.deltaTime;
-        //pitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
-        //pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
-        //transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
     }
 
     // Перемещение игрока
@@ -368,7 +358,7 @@ public class PlayerController : MonoBehaviour
     private void FlyModeON()
     {
 
-        Debug.Log("Полёт");
+        //Debug.Log("Полёт");
         _flyMode = true;
         _gravity = 0;
     }
