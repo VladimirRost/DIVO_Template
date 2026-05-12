@@ -1895,7 +1895,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.16, z: 0.266}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3311,7 +3311,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2, y: 4, z: -19}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1423120315}
@@ -3353,8 +3353,8 @@ MonoBehaviour:
   MobileWindow: {fileID: 1477428761}
   _check_radius_sphere: 0.2
   _gravity: -14
-  minPitch: -89
-  maxPitch: 89
+  minPitch: -80
+  maxPitch: 80
   _carrentPositionSun: 0
   _acceleration: 10
   _deceleration: 16
@@ -3362,7 +3362,7 @@ MonoBehaviour:
   _speed_run: 7
   _jump_height: 1
   _lookSmooth: 10
-  _sensitivity_mouse: 5
+  _sensitivity_mouse: 0.1
   _skyMinExposure: 0.2
   _skyMaxExposure: 1.3
   _proceduralSkyboxMaterial: {fileID: 2100000, guid: 14af2970cd8f13e45a1b4a2241b19a8b, type: 2}
@@ -3404,6 +3404,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   sunController: {fileID: 878602983}
   SunVisual: {fileID: 1381813213}
+  _mainCameraPivot: {fileID: 1423120315}
   _mainCamera: {fileID: 330585545}
   _neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _buttonSkyText: {fileID: 442367571}
@@ -3495,6 +3496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MobilePlatformDetector
   mobileUI: {fileID: 1477428761}
   mobileMovement: {fileID: 1286435172}
+  cameraLookScript: {fileID: 606847015}
   simulateMobile: 0
 --- !u!1 &684760772
 GameObject:
@@ -5631,7 +5633,7 @@ Transform:
   m_GameObject: {fileID: 1423120314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

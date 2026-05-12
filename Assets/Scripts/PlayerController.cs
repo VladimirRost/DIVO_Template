@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _check_radius_sphere = 0.2f;
     [SerializeField] private float _gravity = -14f;
-    [SerializeField] public float minPitch = -89f;
-    [SerializeField] public float maxPitch = 89f;
+    [SerializeField] public float minPitch = -80f;
+    [SerializeField] public float maxPitch = 80f;
     [SerializeField] private float _carrentPositionSun; //Исходная позиция солнца (0 - 210) утро - день - вечер - ночь
 
     [Header("Movement smoothing")]
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     private float _targetYaw;
     private float _targetPitch;
 
-    [Range(1f, 100f)]
+    [Range(0.01f, 1f)]
     [SerializeField] private float _sensitivity_mouse;
 
     
@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour
         Dark
     }
 
+
+    [SerializeField] private Transform _mainCameraPivot;
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Color _neutralColor = new Color(0.5f, 0.5f, 0.5f);
 
@@ -198,19 +200,31 @@ public class PlayerController : MonoBehaviour
     private void Rotate()
     {
 
+        //_mainCameraPivot.localRotation = Quaternion.Euler(45f, 0f, 45f);
+        //Debug.Log($"Pivot localEuler after hard set: {_mainCameraPivot.localEulerAngles}");
+
         Vector2 mouseDelta = input.PlayerActionControl.Look.ReadValue<Vector2>();
 
-        float deltaX = mouseDelta.x;
-        float deltaY = mouseDelta.y;
-
-        _targetYaw += deltaX * _sensitivity_mouse * Time.deltaTime;
-        _targetPitch -= deltaY * _sensitivity_mouse * Time.deltaTime;
+        // Мышь уже возвращает дельту за кадр, умножать на Time.deltaTime не нужно
+        _targetYaw += mouseDelta.x * _sensitivity_mouse;
+        _targetPitch -= mouseDelta.y * _sensitivity_mouse;
         _targetPitch = Mathf.Clamp(_targetPitch, minPitch, maxPitch);
 
-        yaw = Mathf.Lerp(yaw, _targetYaw, _lookSmooth * Time.deltaTime);
-        pitch = Mathf.Lerp(pitch, _targetPitch, _lookSmooth * Time.deltaTime);
+        // Плавное сглаживание
+        yaw = Mathf.Lerp(yaw, _targetYaw, _lookSmooth/* * Time.deltaTime*/);
+        pitch = Mathf.Lerp(pitch, _targetPitch, _lookSmooth /** Time.deltaTime*/);
 
-        transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+        Debug.Log($"Pivot X rotation: {_mainCameraPivot.localEulerAngles.x}");
+        //Debug.Log($"pitch: {pitch}, targetPitch: {_targetPitch}");
+
+        // Player вращается только вокруг мировой вертикали
+        transform.rotation = Quaternion.AngleAxis(yaw, Vector3.up);
+
+        // CameraPivot вращается только вокруг своей оси X
+
+        _mainCameraPivot.localRotation = Quaternion.AngleAxis(pitch, Vector3.right);
+
+
 
     }
 
@@ -572,6 +586,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
+
+
         SunVisual.SetActive(false);
         Vector3 _temSun = SunVisual.transform.position;
         _temSun.y = SunDiraction.transform.position.y * 10f; // размещение солнца
@@ -601,11 +617,32 @@ public class PlayerController : MonoBehaviour
         _start_button = false;
         _flyMode = false;
         temp = _gravity;
+
+        //-----------------------------------------------------------------------------
         Vector3 angles = transform.eulerAngles;
-        Vector3 position = transform.position;
-        transform.position = position;
         yaw = angles.y;
-        pitch = angles.x;
+
+        // Берём pitch из камеры
+        Vector3 camLocalEuler = _mainCameraPivot.localEulerAngles;
+        pitch = camLocalEuler.x;
+        if (pitch > 180f) pitch -= 360f;
+
+        // ВАЖНО: синхронизируем целевые углы с текущими
+        _targetYaw = yaw;
+        _targetPitch = pitch;
+
+        _mainCameraPivot.localRotation = Quaternion.AngleAxis(pitch, Vector3.right);
+        //--------------------------------------------------------------------
+
+       
+
+      
+
+        //Vector3 angles = transform.eulerAngles;
+        //Vector3 position = transform.position;
+        //transform.position = position;
+        //yaw = angles.y;
+        //pitch = angles.x;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -623,7 +660,7 @@ public class PlayerController : MonoBehaviour
             {
 
 
-                Rotate();
+               Rotate();
             }
             Move();
             F_SunPosistion(); // Перемещение солнца

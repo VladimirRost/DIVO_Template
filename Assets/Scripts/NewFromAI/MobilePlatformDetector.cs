@@ -4,11 +4,10 @@ using UnityEngine.UI;
 public class MobilePlatformDetector : MonoBehaviour
 {
     public GameObject mobileUI;
-   // public Text TextPlatform;
     public MonoBehaviour mobileMovement;
+    public MonoBehaviour cameraLookScript;  // <-- НОВАЯ ссылка на CameraLook
 
-    //private string _mob = "Mobile";
-    //private string _pc = "PC";
+
 
 #if UNITY_EDITOR
     [Tooltip("Принудительно эмулировать мобильное устройство в редакторе")]
@@ -33,33 +32,13 @@ public class MobilePlatformDetector : MonoBehaviour
         {
             if (mobileUI != null) mobileUI.SetActive(true);
             if (mobileMovement != null) mobileMovement.enabled = true;
-            //TextPlatform.text = _mob;
-            //Debug.Log("Запуск как МОБИЛЬНОЕ устройство");
+            if (cameraLookScript != null) cameraLookScript.enabled = true;   // включаем мобильный поворот
         }
         else
         {
             if (mobileUI != null) mobileUI.SetActive(false);
             if (mobileMovement != null) mobileMovement.enabled = false;
-            //TextPlatform.text = _pc;
-            //Debug.Log("Запуск как ДЕСКТОП");
+            if (cameraLookScript != null) cameraLookScript.enabled = false;  // выключаем мобильный поворот
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
