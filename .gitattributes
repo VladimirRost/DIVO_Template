@@ -1,6 +1,5 @@
 # Автоопределение текстовых файлов
 * text=auto
-
 # Unity текстовые файлы (нужна нормализация окончаний строк)
 *.meta text=auto
 *.unity text=auto
@@ -11,12 +10,10 @@
 *.controller text=auto
 *.shader text=auto
 *.cs text=diff
-
 # Файлы сцен и префабов (особо важны для мержа)
 *.unity text=auto merge=unityyamlmerge
 *.prefab text=auto merge=unityyamlmerge
 *.asset text=auto merge=unityyamlmerge
-
 # Бинарные файлы (НЕ конвертировать окончания строк)
 *.fbx binary
 *.jpg binary
@@ -38,8 +35,8 @@
 *.zip binary
 *.rar binary
 *.7z binary
-
 # Файлы специфичные для вашего проекта (GavsHome)
 Assets/GavsHome/**/*.fbx binary
 Assets/GavsHome/**/*.jpg binary
 Assets/GavsHome/**/*.png binary
+Assets/**/*.{fbx,png,jpg,tga,wav} filter=lfs diff=lfs merge=lfs -text
