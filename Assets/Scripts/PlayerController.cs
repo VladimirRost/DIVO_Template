@@ -214,7 +214,7 @@ public class PlayerController : MonoBehaviour
         yaw = Mathf.Lerp(yaw, _targetYaw, _lookSmooth/* * Time.deltaTime*/);
         pitch = Mathf.Lerp(pitch, _targetPitch, _lookSmooth /** Time.deltaTime*/);
 
-        Debug.Log($"Pivot X rotation: {_mainCameraPivot.localEulerAngles.x}");
+        //Debug.Log($"Pivot X rotation: {_mainCameraPivot.localEulerAngles.x}");
         //Debug.Log($"pitch: {pitch}, targetPitch: {_targetPitch}");
 
         // Player вращается только вокруг мировой вертикали
@@ -544,7 +544,7 @@ public class PlayerController : MonoBehaviour
 
                 SunVisual.SetActive(false);
                 SunDiraction.SetActive(true);
-                Debug.Log("Режим SunOnly");
+                //Debug.Log("Режим SunOnly");
                 break;
 
             case BackgroundMode.Neutral:
@@ -552,7 +552,7 @@ public class PlayerController : MonoBehaviour
                 _mainCamera.backgroundColor = _neutralColor;
                 SunVisual.SetActive(false);   // 👈 выключаем диск солнца
                 SunDiraction.SetActive(false);
-                Debug.Log("Режим None");
+                //Debug.Log("Режим None");
                 break;
 
             case BackgroundMode.Dark:
@@ -563,7 +563,7 @@ public class PlayerController : MonoBehaviour
                 //_mainCamera.backgroundColor = _darkColor;
                 SunVisual.SetActive(false);   // 👈 выключаем диск солнца
                 SunDiraction.SetActive(false);
-                Debug.Log("Режим Dark");
+                //Debug.Log("Режим Dark");
 
                 break;
 
