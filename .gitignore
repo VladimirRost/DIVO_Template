@@ -1,29 +1,66 @@
-# ========== Временные файлы Unity ==========
+# ============================================================
+
+# DIVO Template — Git Ignore
+
+# ============================================================
+
+# ============================================================
+
+# UNITY — временные и генерируемые файлы
+
+# ============================================================
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
-/MemoryCaptures/
+/[Mm]emoryCaptures/
+/[Uu]ser[Ss]ettings/
 
-# ========== Файлы настроек редактора ==========
+# ============================================================
+
+# IDE / DEVELOPMENT ENVIRONMENT
+
+# ============================================================
+
+# Visual Studio
+
+.vs/
 *.csproj
 *.unityproj
 *.sln
 *.suo
-*.tmp
 *.user
 *.userprefs
-*.pidb
-*.booproj
-*.svd
 *.pdb
 *.mdb
 *.opendb
 *.VC.db
 
-# ========== Системные файлы ==========
+# JetBrains Rider
+
+.idea/
+
+# Visual Studio Code
+
+.vscode/
+
+# Other IDE / editor files
+
+*.tmp
+*.pidb
+*.booproj
+*.svd
+
+# ============================================================
+
+# OPERATING SYSTEM
+
+# ============================================================
+
+.DS_Store
 *.DS_Store
 *~
 *.swp
@@ -31,30 +68,77 @@
 Thumbs.db
 desktop.ini
 
-# ========== Плагины и ассеты ==========
-# Если используете плагины, которые генерируют файлы
+# ============================================================
+
+# UNITY PLUGINS — GENERATED / PLATFORM-SPECIFIC FILES
+
+# ============================================================
+
 /[Aa]ssets/Plugins/Editor/x86/
 /[Aa]ssets/Plugins/Editor/x86_64/
 /[Aa]ssets/Plugins/x86/
 /[Aa]ssets/Plugins/x86_64/
 
-# ========== Профайлинг ==========
+# ============================================================
+
+# PROFILING / DEBUGGING
+
+# ============================================================
+
 *.psess
 *.vsp
-*.psess
 *.trace
 
-# ========== Для конкретных папок в вашем проекте =========-
-# Раскомментируйте если нужно игнорировать определенные ассеты
-# /Assets/GavsHome/Текстурные_кэши/
-# /Assets/GavsHome/Заглушки/
-
-# ========== Настройки IDE ==========
-.vscode/
-.idea/
-*.pidb
-*.userprefs
-
-# ========== Логи ошибок ==========
 /error.log
 /crash.log
+
+# ============================================================
+
+# DIVO TEMPLATE — GENERATED BUILD
+
+# ============================================================
+
+# WebGL build is generated output and is not part of the template.
+
+/HTML/
+
+
+# ============================================================
+# DIVO TEMPLATE — LOCAL / EXTERNAL RESOURCE ASSETS
+# ============================================================
+
+# External HDR resources — local only.
+*.hdr
+*.HDR
+*.hdr.meta
+*.HDR.meta
+
+# Unity Cubemap resources — local only.
+*.cubemap
+*.CUBEMAP
+*.cubemap.meta
+*.CUBEMAP.meta
+
+# FBX source models — local only.
+*.fbx
+*.FBX
+*.fbx.meta
+*.FBX.meta
+# ============================================================
+
+# OPTIONAL PROJECT-SPECIFIC EXCLUSIONS
+
+# ============================================================
+
+# Add project-specific generated or temporary assets below.
+
+#
+
+# Example:
+
+# /Assets/DIVO/Temporary/
+
+# /Assets/DIVO/Test/
+
+# /Assets/SomeAssetCache/
+
