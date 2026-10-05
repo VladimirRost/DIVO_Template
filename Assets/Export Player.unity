@@ -5505,8 +5505,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SunPositionController
   MonthCounter: {fileID: 1877012553}
-  latitude: 43.25
-  longitude: 76.95
+  latitude: 60
+  longitude: 30
   year: 2025
   month: 9
   day: 14
@@ -5920,6 +5920,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974903127}
   m_CullTransparentMesh: 1
+--- !u!1 &998615634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998615636}
+  - component: {fileID: 998615635}
+  m_Layer: 0
+  m_Name: DIVO_PC_Profile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &998615635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998615634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 11ebda35db8e38447a932e95fb120416, type: 2}
+--- !u!4 &998615636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998615634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.47758, y: -2.92659, z: -1.5965695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1040051533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6256,6 +6305,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220720324}
   m_CullTransparentMesh: 1
+--- !u!1 &1280559869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280559871}
+  - component: {fileID: 1280559870}
+  m_Layer: 0
+  m_Name: 'DIVO_Mobile_Profile '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1280559870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280559869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 04d7399a1b704ac408dffa3480587e5c, type: 2}
+--- !u!4 &1280559871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280559869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.47758, y: -2.92659, z: -1.5965695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284597324
 GameObject:
   m_ObjectHideFlags: 0
@@ -8159,7 +8257,7 @@ GameObject:
   - component: {fileID: 1674808873}
   - component: {fileID: 1674808872}
   m_Layer: 0
-  m_Name: DIVO_WebGL_HQ_Profile
+  m_Name: DIVO_Ultra_Profile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9003,6 +9101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593e37d37f2665e4ba6eb0599e310749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DIVOQualityManager
+  ultraVolume: {fileID: 1674808872}
+  pcVolume: {fileID: 998615635}
+  mobileVolume: {fileID: 1280559870}
+  buttonUltra: {fileID: 595106130}
+  buttonMedium: {fileID: 1660297463}
+  buttonLow: {fileID: 1679074905}
 --- !u!4 &1852788794
 Transform:
   m_ObjectHideFlags: 0
@@ -9713,6 +9817,8 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 878602982}
   - {fileID: 1674808873}
+  - {fileID: 998615636}
+  - {fileID: 1280559871}
   - {fileID: 1852788794}
   - {fileID: 962034338}
   - {fileID: 1381813217}
