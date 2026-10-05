@@ -81,6 +81,11 @@ public class DIVOQualityManager : MonoBehaviour
             $"Texture Mipmap Limit: " +
             $"{QualitySettings.globalTextureMipmapLimit}"
         );
+        Debug.Log(
+    $"DIVO Quality: {levelName} | " +
+    $"RP Asset: {GraphicsSettings.currentRenderPipeline.name} | " +
+    $"Texture Mipmap Limit: {QualitySettings.globalTextureMipmapLimit}"
+);
     }
 
     private void SetVolume(Volume activeVolume)
